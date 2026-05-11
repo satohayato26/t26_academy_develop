@@ -42,7 +42,16 @@ public class BookMstService {
 
         return bookMstDtoList;
     }
-    
+    @Transactional
+    public void save(BookMstDto bookMstDto) {
+
+    BookMst entity = new BookMst();
+
+    entity.setIsbn(bookMstDto.getIsbn());
+    entity.setTitle(bookMstDto.getTitle());
+
+    bookMstRepository.save(entity);
+    }
 }
 
 
